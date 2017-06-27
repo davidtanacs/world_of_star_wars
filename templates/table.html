@@ -31,5 +31,10 @@
             </tr>
         {% endfor %}
     </table>
+    <form action="/">
+        <input id="next" type="submit" name="next">next page</input>
+        <input id="previous" type="submit" name="previous">previous page</input>
+        <button id="actual" style="display: none;" value={{ response }}></button>
+    </form>
 </body>
 </html>
