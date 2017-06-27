@@ -5,9 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>World of Star Wars&copy</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="/static/main.js" type="text/javascript" defer></script>
 </head>
 <body>
     <table border=1>
+        <th>
+            Name
+        </th>
+        <th>
+            Diameter(km)
+        </th>
+        <th>
+            Climate
+        </th>
+        <th>
+            Terrain
+        </th>
+        <th>
+            Surface water %
+        </th>
+        <th>
+            Population
+        </th>
         {% for planet in table %}
             <tr>
                 <td>
@@ -28,13 +49,17 @@
                 <td>
                     {{ planet.population }}
                 </td>
+                {% if planet.residents %}
+                <td>
+                    <button type="submit" id="resident">Resident(s)</button>
+                </td>
+                {% endif %}
             </tr>
         {% endfor %}
     </table>
     <form action="/">
-        <input id="next" type="submit" name="next">next page</input>
-        <input id="previous" type="submit" name="previous">previous page</input>
-        <button id="actual" style="display: none;" value={{ response }}></button>
+        <input id="previous" type="submit" name="previous" value="previous page"></input>
+        <input id="next" type="submit" name="next" value="next page"></input>
     </form>
 </body>
 </html>

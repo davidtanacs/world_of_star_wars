@@ -23,10 +23,5 @@ def show_table():
     table = response['results']
     return render_template('table.html', table=table)
 
-
-
-
-
-
 if __name__ == '__main__':
     app.run(debug=True)
