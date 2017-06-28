@@ -16,8 +16,8 @@ $(document).ready(function() {
     for (var i = 0; i < residentsLinks.length; i++) {
         $.getJSON(residentsLinks[i], function(residents) {
             var table = document.getElementById("residentsModal");
-            var row = table.insertRow(0);
-            var propertyList = ["name", "height", "mass", "hair_color", "skin_color", "eye_color", "birth_color", "gender"]
+            var row = table.insertRow(1);
+            var propertyList = ["name", "height", "mass", "hair_color", "skin_color", "eye_color", "birth_year", "gender"]
             for (var j = 0; j < propertyList.length; j++) {
                 var cell = row.insertCell(j);
                 cell.innerHTML = residents[propertyList[j]];
