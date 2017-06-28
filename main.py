@@ -21,7 +21,7 @@ def show_table():
     source = 'http://swapi.co/api/planets/?page={}'.format(page_num)
     response = requests.get(source).json()
     table = response['results']
-    return render_template('table.html', table=table)
+    return render_template('table.html', table=table, page_num=page_num)
 
 if __name__ == '__main__':
     app.run(debug=True)
