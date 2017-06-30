@@ -11,16 +11,27 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">World of Star Wars</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+            </ul>
+        </div>
+    </nav>
     <form action="login" method="POST">
-        <p>Your username</p>
-        <input type="text" name="username"></input>
-        <br>
-        <p>Your password</p>
-        <input type="password" name="password"></input>
-        <br>
-        <input type="submit" value="Log me in!" id="login"></input>
-    </form>
-    <a href="/"><input id='styled_button' type="submit" value="Home"></a>
+        <div class="form-group">
+            <label for="username">Your username:</label>
+            <input type="text" class="form-control" name="username"></input>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" name="password"></input>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Log me in!</button>
+    </form> 
     <button style="display:none;" id="login" value={{ login }}></button>
 </body>
 </html>

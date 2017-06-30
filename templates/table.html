@@ -12,14 +12,41 @@
     <script src="/static/main.js" type="text/javascript" defer></script>
 </head>
 <body>
-    {% if username %}
-        <h1> Welcome Master {{ username }} </h1>
-        <a href="/logout">Logout</a>
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">World of Star Wars</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Planet list</a></li>
+      </ul>
+        {% if username %}
+          <ul class="nav navbar-nav navbar-right">
+            <li><a><span class="glyphicon glyphicon-user"></span>Welcome Master {{ username }}</a></li>
+            <li><a href="logout"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+          </ul>
+        {% else %}
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="/registration"><span class="glyphicon glyphicon-user"></span>Registration</a></li>
+              <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+          </ul>
+        {% endif %}
+  </div>
+</nav>
+<h1>Star Wars universe planets</h1>
+<form action="/">
+    {% if page_num == 7 %}
+    <input id="previous" class="btn btn-primary active" type="submit" name="previous" value="previous page"></input>
+    <input id="next" class="btn btn-primary disabled" type="submit" name="next" value="next page"></input>
+    {% elif page_num == 1 %}
+    <input id="previous" class="btn btn-primary disabled" type="submit" name="previous" value="previous page"></input>
+    <input id="next" class="btn btn-primary active" type="submit" name="next" value="next page"></input>
     {% else %}
-        <h1> You are not logged in </h1>
-        <a href="/registration">Registration</a>
-        <a href="/login">Login</a>
+    <input id="previous" class="btn btn-primary active" type="submit" name="previous" value="previous page"></input>
+    <input id="next" class="btn btn-primary active" type="submit" name="next" value="next page"></input>
     {% endif %}
+</form>
+<br>
     <table border=1 class="table">
         <th>
             Name
@@ -67,10 +94,6 @@
             </tr>
         {% endfor %}
     </table>
-    <form action="/">
-        <input id="previous" type="submit" name="previous" value="previous page"></input>
-        <input id="next" type="submit" name="next" value="next page"></input>
-    </form>
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
