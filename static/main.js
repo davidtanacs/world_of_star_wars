@@ -21,13 +21,13 @@ $(document).ready(function() {
             for (var j = 0; j < propertyList.length; j++) {
                 var cell = row.insertCell(j);
                 cell.innerHTML = residents[propertyList[j]];
-            }
+            };
             //table.innerHTML += "</tr>";
             var modal = document.getElementById('myModal')
             $('#myModal').modal("show")
-        })
-    }
-    })
+        });
+    };
+    });
     });
 });
 });

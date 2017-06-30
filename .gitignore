@@ -8,4 +8,5 @@
 !.vscode/extensions.json
 
 config.py
+secret_key_src.py
 # End of https://www.gitignore.io/api/visualstudiocode

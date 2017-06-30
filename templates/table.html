@@ -12,8 +12,14 @@
     <script src="/static/main.js" type="text/javascript" defer></script>
 </head>
 <body>
+    {% if username %}
+        <h1> Welcome Master {{ username }} </h1>
+    {% else %}
+        <h1> You are not logged in </h1>
+    {% endif %}
     <a href="/registration">Registration</a>
     <a href="/login">Login</a>
+    <a href="/logout">Logout</a>
     <table border=1 class="table">
         <th>
             Name
