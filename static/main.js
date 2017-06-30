@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $("[id=resident]").click(function() {
-        var $row = $(this).closest("tr"),        // Finds the closest row <tr> 
+        var $row = $(this).closest("tr"),        // Finds the closest row <tr>
     $tds = $row.find("td:nth-child(1)"); // Finds the 1st <td> element
     $.each($tds, function() {                // Visits every single <td> element
     var planetName = $(this).text();         // Prints out the text within the <td>
