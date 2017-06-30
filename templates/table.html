@@ -52,7 +52,7 @@
             Name
         </th>
         <th>
-            Diameter(km)
+            Diameter
         </th>
         <th>
             Climate
@@ -61,7 +61,7 @@
             Terrain
         </th>
         <th>
-            Surface water(%)
+            Surface water
         </th>
         <th>
             Population
@@ -72,7 +72,7 @@
                     {{ planet.name }}
                 </td>
                 <td>
-                    {{ planet.diameter }}
+                    {{ planet.diameter }} km
                 </td>
                 <td>
                     {{ planet.climate }}
@@ -81,14 +81,14 @@
                     {{ planet.terrain }}
                 </td>
                 <td>
-                    {{ planet.surface_water }}
+                    {{ planet.surface_water }}%
                 </td>
                 <td>
-                    {{ planet.population }}
+                    {{ planet.population }} people
                 </td>
                 {% if planet.residents %}
                 <td>
-                    <button type="submit" id="resident">Resident(s)</button>
+                    <button type="submit" id="resident">{{ planet.residents|length }} Resident(s)</button>
                 </td>
                 {% endif %}
             </tr>
@@ -98,7 +98,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Residents</h4>
+          <h4 class="modal-title">Resident(s)</h4>
         </div>
         <div class="modal-body">
             <table data-toggle="modal" data-target="#myModal" id="residentsModal" border=1>
