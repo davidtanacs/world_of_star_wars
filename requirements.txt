@@ -7,7 +7,6 @@ docker-compose==1.8.0
 docker-py==1.9.0
 dockerpty==0.4.1
 docopt==0.6.2
-duplicity==0.7.6
 enum34==1.1.2
 Flask==0.12.2
 funcsigs==0.4
