@@ -2,8 +2,8 @@ from flask import Flask, render_template, request, session, escape, redirect, ur
 import requests
 from db_connection import connect_to_db
 from password_hash import hash, check_password_hash
-import query_manager
-import secret_key_src
+from query_manager import save_new_user, user_login
+from secret_key_src import secret_key
 import os
 import psycopg2
 import urllib
@@ -49,7 +49,7 @@ def registration():
         username = request.form.get("username")
         password = request.form.get("password")
         password = hash(password)
-        query_manager.save_new_user(username, password, connect_to_db())
+        save_new_user(username, password, connect_to_db())
         return redirect(url_for('show_table'))
     else:
         username = ""
@@ -63,7 +63,7 @@ def login():
     if request.form.get("username") and request.form.get("password"):
         username = request.form.get("username")
         password = request.form.get("password")
-        if query_manager.user_login(username, password, connect_to_db()):
+        if user_login(username, password, connect_to_db()):
             login = True
             session['username'] = username
             return redirect(url_for('show_table'))

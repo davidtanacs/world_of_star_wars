@@ -1,11 +1,11 @@
 import psycopg2
-import config
+from config import dbname, user, password
 
 
 def connect_to_db():
     try:
         connect_str = ("dbname='{}' user='{}' host='localhost' password='{}'".format(
-            config.dbname, config.user, config.password))
+            dbname, user, password))
         connect = psycopg2.connect(connect_str)
         connect.autocommit = True
     except psycopg2.Error:
