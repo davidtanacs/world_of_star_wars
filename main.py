@@ -21,7 +21,7 @@ def show_table():
     elif request.args.get('previous'):
         if page_num > 1:
             page_num -= 1
-    source = 'http://swapi.co/api/planets/?page={}'.format(page_num)
+    source = 'https://swapi.co/api/planets/?page={}'.format(page_num)
     response = requests.get(source).json()
     table = response['results']
     try:
