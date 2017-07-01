@@ -14,7 +14,7 @@ $(document).ready(function() {
        };
        var residentsDatas = [];
     for (var i = 0; i < residentsLinks.length; i++) {
-        $.getJSON(residentsLinks[i], function(residents) {
+        $.getJSON(residentsLinks[i].replace("http", "https"), function(residents) {
             var table = document.getElementById("residentsModal");
             var row = table.insertRow(1);
             var propertyList = ["name", "height", "mass", "hair_color", "skin_color", "eye_color", "birth_year", "gender"]
