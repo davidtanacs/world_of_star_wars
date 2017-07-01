@@ -1,5 +1,4 @@
 import psycopg2
-from config import dbname, user, password
 import os
 import urllib
 
