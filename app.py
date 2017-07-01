@@ -46,6 +46,7 @@ def registration():
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
+    login = False
     if request.form.get("username") and request.form.get("password"):
         username = request.form.get("username")
         password = request.form.get("password")
@@ -54,8 +55,7 @@ def login():
             session['username'] = username
             return redirect(url_for('show_table'))
         else:
-            login = False
-    login = False
+            login = str(False)
     return render_template('login.html', login=login)
 
 

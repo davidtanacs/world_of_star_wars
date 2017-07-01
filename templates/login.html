@@ -30,6 +30,9 @@
             <label for="pwd">Password:</label>
             <input type="password" class="form-control" name="password"></input>
         </div>
+        {% if login == "False" %}
+        Incorrect username and/or password young padawan! Please try again!<br>But meanwhile do not forget:<br>"Do or do not. There is no try!"<br>Master Yoda<br>
+        {% endif %}
         <button type="submit" class="btn btn-primary btn-lg">Log me in!</button>
     </form> 
     <button style="display:none;" id="login" value={{ login }}></button>
