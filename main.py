@@ -4,19 +4,7 @@ from db_connection import connect_to_db
 from password_hash import hash, check_password_hash
 from query_manager import save_new_user, user_login
 from secret_key_src import secret_key
-import os
-import psycopg2
-import urllib
 
-urllib.parse.uses_netloc.append('postgres')
-url = urllib.parse.urlparse(os.environ.get('DATABASE_URL'))
-connection = psycopg2.connect(
-    database=url.path[1:],
-    user=url.username,
-    password=url.password,
-    host=url.hostname,
-    port=url.port
-)
 
 app = Flask(__name__)
 
@@ -78,6 +66,6 @@ def logout():
     return redirect(url_for('show_table'))
 
 if __name__ == '__main__':
-    app.secret_key = secret_key_src.secret_key
+    app.secret_key = secret_key
     app.config['SESSION_TYPE'] = 'filesystem'
     app.run(debug=True)
