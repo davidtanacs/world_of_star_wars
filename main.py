@@ -4,6 +4,19 @@ from db_connection import connect_to_db
 from password_hash import hash, check_password_hash
 import query_manager
 import secret_key_src
+import os
+import psycopg2
+import urllib
+
+urllib.parse.uses_netloc.append('postgres')
+url = urllib.parse.urlparse(os.environ.get('DATABASE_URL'))
+connection = psycopg2.connect(
+    database=url.path[1:],
+    user=url.username,
+    password=url.password,
+    host=url.hostname,
+    port=url.port
+)
 
 app = Flask(__name__)
 
